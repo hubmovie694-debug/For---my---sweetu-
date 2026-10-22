@@ -1,363 +1,215 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Cutie Pie ❤️</title>
-<style>
-:root{--pink:#ff4f91;--deep:#9d174d;--cream:#fff6fb}
-*{box-sizing:border-box}
-body{margin:0;font-family:'Trebuchet MS',Arial,sans-serif;color:#fff;background:#170d28;overflow-x:hidden}
-.page{display:none;min-height:100vh;padding:28px 17px 45px;text-align:center;position:relative;overflow:hidden}
-.page.active{display:flex;flex-direction:column;align-items:center;justify-content:center}
-h1{font-size:clamp(2rem,7vw,3.5rem);margin:10px 0 18px}
-h2{font-size:clamp(1.4rem,5vw,2.3rem)}
-p{line-height:1.75}
-button,input{font:inherit}
-button{border:0;cursor:pointer;border-radius:30px;padding:13px 24px;font-weight:bold;transition:transform .2s}
-button:hover{transform:scale(1.05)}
-.primary{background:linear-gradient(100deg,#ff4f91,#ff91c1);color:white;box-shadow:0 5px 25px #ff4f9160}
-.secondary{background:white;color:#b42366}
-.small{font-size:.9rem;opacity:.85}
-.glow{color:#ffb7d6;text-shadow:0 0 20px #ff4f91}
-.card{width:min(650px,95%);padding:25px 20px;border:1px solid #ffffff40;border-radius:25px;background:#ffffff12;backdrop-filter:blur(8px);box-shadow:0 12px 50px #0003}
-#lock{background:radial-gradient(circle at top,#65264f,#190d2d 65%)}
-#boards{background:linear-gradient(140deg,#401a5b,#a52f76,#ff7da8)}
-#letterPage{background:linear-gradient(140deg,#321444,#6e265f,#b83f7b)}
-#heartsPage{background:linear-gradient(135deg,#160d2a,#431b52,#8e2d66)}
-#proposal{background:radial-gradient(circle at top,#772b63,#170d28 68%)}
-#yesPage{background:#090a20}
-#noPage{background:linear-gradient(140deg,#6d174e,#27123f)}
-input{width:min(300px,90%);padding:14px;border:2px solid #ffb7d6;border-radius:15px;text-align:center;margin:14px;background:#fff;color:#42152f;letter-spacing:5px}
-.error{color:#ffd0e2;min-height:24px}
-.float{position:absolute;pointer-events:none;opacity:.5;animation:floatUp 8s linear infinite}
-@keyframes floatUp{from{transform:translateY(110vh) rotate(0)}to{transform:translateY(-15vh) rotate(360deg)}}
-.character{width:140px;height:165px;position:relative;margin:8px auto 22px;animation:bob 2s ease-in-out infinite}
-@keyframes bob{50%{transform:translateY(-8px)}}
-.head{position:absolute;top:12px;left:24px;width:92px;height:83px;border:3px solid #29152c;border-radius:42% 42% 45% 45%;background:#ffd3a5;z-index:2}
-.hair{position:absolute;top:-5px;left:12px;width:64px;height:24px;border-radius:50%;background:#211321}
-.eye{position:absolute;top:35px;width:7px;height:10px;background:#211321;border-radius:50%}
-.eye.one{left:25px}.eye.two{right:25px}
-.cheek{position:absolute;top:50px;width:15px;height:7px;border-radius:50%;background:#ff8eb2}
-.cheek.one{left:9px}.cheek.two{right:9px}
-.mouth{position:absolute;left:40px;top:49px;width:13px;height:9px;border-bottom:3px solid #a52d55;border-radius:50%}
-.body{position:absolute;top:91px;left:35px;width:70px;height:52px;background:#ff4f68;border:3px solid #29152c;border-radius:18px 18px 10px 10px}
-.shorts{position:absolute;top:132px;left:39px;width:62px;height:22px;background:#ffdf61;border:3px solid #29152c;border-radius:4px}
-.leg{position:absolute;top:149px;width:16px;height:14px;background:#ffd3a5;border:2px solid #29152c;border-radius:5px}
-.leg.one{left:45px}.leg.two{right:45px}
-.board{background:#fff9f2;color:#71325b;border:4px solid #ffca61;border-radius:12px;padding:13px 10px;font-weight:bold;transform:rotate(-2deg);box-shadow:0 7px 20px #0003}
-#boardText{font-size:1.35rem;min-height:90px;display:flex;align-items:center;justify-content:center}
-.boardButtons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px}
-.envelope{font-size:100px;cursor:pointer;animation:bob 1.5s infinite}
-.letter{max-width:760px;width:100%;height:min(65vh,650px);overflow:auto;text-align:left;background:#fff7fc;color:#63264c;border-radius:18px;padding:23px;line-height:1.9;box-shadow:0 0 35px #ff94c566;white-space:pre-line}
-.letter p{margin:0}
-.heart{position:absolute;color:#ff8ec4;animation:heartBeat 1.7s infinite}
-@keyframes heartBeat{50%{transform:scale(1.3)}}
-#particleCanvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-#yesPage .yesContent{z-index:2;margin-top:10px}
-#yesPage h1{font-size:clamp(1.7rem,6vw,3rem);color:#ffc5e2}
-#yesPage p{color:#fff0f8}
-#noMessage{font-size:1.2rem;max-width:520px}
-#proposal .buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:25px}
-#noBtn{background:#fff;color:#9d174d}
-footer{font-size:.8rem;opacity:.65;margin-top:25px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Cutie - Shinchan Love Story</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; background-color: #1a1025; color: #fff; overflow-x: hidden; }
+        .page { display: none; min-height: 100vh; flex-direction: column; justify-content: center; align-items: center; padding: 20px; text-align: center; position: relative; }
+        .page.active { display: flex; animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .shinchan-card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 2px solid rgba(255, 182, 193, 0.3); border-radius: 20px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .glow-heart { text-shadow: 0 0 20px #ff69b4, 0 0 40px #ff1493; animation: pulseGlow 1.5s infinite alternate; }
+        @keyframes pulseGlow { from { transform: scale(1); } to { transform: scale(1.1); } }
+    </style>
 </head>
-<body>
+<body class="bg-slate-950 text-white select-none">
 
-<div id="lock" class="page active">
-  <div class="card">
-    <div class="character" aria-label="Cute cartoon character">
-      <div class="head"><div class="hair"></div><div class="eye one"></div><div class="eye two"></div><div class="cheek one"></div><div class="cheek two"></div><div class="mouth"></div></div>
-      <div class="body"></div><div class="shorts"></div><div class="leg one"></div><div class="leg two"></div>
+    <!-- Page 1: Surprise Entry -->
+    <div id="page-1" class="page active">
+        <div class="absolute top-4 left-4 text-pink-400 font-semibold text-xs">Page 1<br><span class="text-gray-300">Surprise Entry</span>[span_2](start_span)[span_2](end_span)</div>
+        <div class="max-w-md w-full shinchan-card">
+            <div class="mb-4 text-6xl">💖</div>
+            <h1 class="text-2xl font-bold mb-4 text-pink-300">I Love You</h1>
+            <div class="bg-yellow-200 text-black p-4 rounded-xl font-bold mb-6 shadow-inner border-2 border-red-400">
+                [Shinchan Holding "I ❤️ You" Sign][span_3](start_span)[span_3](end_span)
+            </div>
+            <div class="flex gap-4 justify-center">
+                <button onclick="nextPage()" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition transform hover:scale-105">I Love You Too ❤️</button>
+                <button onclick="moveNoButton(this)" class="bg-gray-700 hover:bg-gray-600 text-gray-300 font-bold py-3 px-6 rounded-full transition">I Don't Love You 💔</button>
+            </div>
+        </div>
     </div>
-    <div class="board">I LOVE YOU, CUTIE! ❤️</div>
-    <h1 class="glow">I love you and your answer 💗</h1>
-    <p>Only my favourite person can open this little world. 🥹</p>
-    <label for="password">Your answer 💌</label><br>
-    <input id="password" type="password" placeholder="Enter the secret" maxlength="10">
-    <br><button class="primary" onclick="unlock()">Unlock my heart 💖</button>
-    <p id="error" class="error"></p>
-    <p class="small">A tiny secret made with lots of love.</p>
-  </div>
-</div>
 
-<div id="boards" class="page">
-  <h1>Heyyy, meri cutie pie! 💗</h1>
-  <p>There are so many reasons I love you...</p>
-  <div class="character">
-    <div class="head"><div class="hair"></div><div class="eye one"></div><div class="eye two"></div><div class="cheek one"></div><div class="cheek two"></div><div class="mouth"></div></div>
-    <div class="body"></div><div class="shorts"></div><div class="leg one"></div><div class="leg two"></div>
-  </div>
-  <div class="card">
-    <div class="board" id="boardText">You're one of the sweetest people I've ever met. 💕</div>
-    <div class="boardButtons">
-      <button class="secondary" onclick="previousBoard()">← Back</button>
-      <button class="primary" id="nextBoard" onclick="nextBoard()">Next reason 💖 →</button>
+    <!-- Page 2: Your Answer -->
+    <div id="page-2" class="page">
+        <div class="absolute top-4 left-4 text-pink-400 font-semibold text-xs">Page 2<br><span class="text-gray-300">Your Answer</span>[span_4](start_span)[span_4](end_span)</div>
+        <div class="max-w-md w-full shinchan-card">
+            <h2 class="text-xl font-bold mb-4 text-yellow-300">I'm waiting for your answer... 💕</h2>
+            <div class="bg-yellow-100 text-black p-6 rounded-xl font-bold mb-6 border-2 border-orange-400">
+                [Shinchan in front of house waiting][span_5](start_span)[span_5](end_span)
+            </div>
+            <div class="flex gap-4 justify-center">
+                <button onclick="nextPage()" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full">I Love You Too ❤️</button>
+                <button onclick="alert('Arey maan bhi jao na cutie! 🥺')" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-full">I Don't Love You 💔</button>
+            </div>
+        </div>
     </div>
-    <p id="boardCount" class="small">Reason 1 of 7</p>
-  </div>
-</div>
 
-<div id="letterPage" class="page">
-  <h1>A little letter for you 💌</h1>
-  <p>Made from my heart, just for you.</p>
-  <div class="envelope" onclick="openLetter()" role="button" aria-label="Open the letter">💌</div>
-  <button class="primary" onclick="openLetter()">Click to see my letter 💗</button>
-  <div id="letterWrap" style="display:none;width:100%;max-width:800px;margin-top:22px">
-    <div id="letter" class="letter"></div>
-    <button class="primary" style="margin-top:20px" onclick="showPage('heartsPage')">Continue, meri cutie ❤️</button>
-  </div>
-</div>
-
-<div id="heartsPage" class="page">
-  <h1 class="glow">You are my world 🌎💗</h1>
-  <div id="heartField" style="font-size:2.6rem;line-height:1.8;max-width:550px">
-    💗 💖 💕 💘 💞<br>💝 ❤️ 🩷 💓 💗<br>💕 💘 💖 💞 💝
-  </div>
-  <h2>I love you so much, sweetheart! 🥹</h2>
-  <p>And now... one little question from my heart.</p>
-  <button class="primary" onclick="showPage('proposal')">One last surprise 💍</button>
-</div>
-
-<div id="proposal" class="page">
-  <div class="character" style="transform:scale(1.15)">
-    <div class="head"><div class="hair"></div><div class="eye one"></div><div class="eye two"></div><div class="cheek one"></div><div class="cheek two"></div><div class="mouth"></div></div>
-    <div class="body"></div><div class="shorts"></div><div class="leg one"></div><div class="leg two"></div>
-  </div>
-  <div style="font-size:45px;animation:bob 1.4s infinite">🌹💍</div>
-  <h1 class="glow">Will You Be My Forever?</h1>
-  <div class="card">
-    <p>
-      Teri hasi se meri har shaam haseen ho jaaye,<br>
-      Tera saath mile toh har khwaab haqeeqat ban jaaye.<br>
-      Har janam mein bas tera hi haath thaamna chahoon,<br>
-      Teri zindagi ka humsafar bankar, har pal tujhe chaahoon. ❤️
-    </p>
-    <h2>Will you be my forever, meri cutie? 💍🥹</h2>
-    <p>Sirf aaj ke liye nahi, apni poori zindagi ke liye? 💗</p>
-    <div class="buttons">
-      <button class="primary" onclick="sayYes()">YES! ❤️🥹</button>
-      <button id="noBtn" onclick="sayNo()">NO 🙈</button>
+    <!-- Page 3: Sorry Message -->
+    <div id="page-3" class="page">
+        <div class="absolute top-4 left-4 text-pink-400 font-semibold text-xs">Page 3<br><span class="text-gray-300">Sorry Message</span>[span_6](start_span)[span_6](end_span)</div>
+        <div class="max-w-md w-full shinchan-card bg-amber-50 text-black">
+            <h3 class="text-xl font-bold text-red-600 mb-2">It's my bad, cutie...[span_7](start_span)[span_7](end_span)</h3>
+            <p class="text-sm text-gray-800 leading-relaxed mb-4">
+                Mujhse galti ho gayi, par main ise sudharne ki poori koshish karunga. Tum naraz ho sakti ho, par main tumhari feelings ki respect karta hoon[span_8](start_span)[span_8](end_span).<br><br>
+                Main tumhe aur zyada samajhne, tumhe khush rakhne aur tumhari smile wapas laane ki koshish karta rahunga...[span_9](start_span)[span_9](end_span)<br>
+                Please give me one more chance... I will always love you ❤️[span_10](start_span)[span_10](end_span)
+            </p>
+            <button onclick="nextPage()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-full">Next 💖</button>
+        </div>
     </div>
-    <p class="small">No pressure, cutie. Choose what feels right for you. 💗</p>
-  </div>
-</div>
 
-<div id="yesPage" class="page">
-  <canvas id="particleCanvas"></canvas>
-  <div class="yesContent">
-    <h1>I love you so much, sweetheart ❤️</h1>
-    <p>You make my little world brighter. ✨</p>
-    <p>Here's a tiny universe of love, made just for you.</p>
-    <button class="primary" onclick="showPage('finalPage')">One last message 💌</button>
-  </div>
-</div>
+    <!-- Page 4: Reasons I Love You -->
+    <div id="page-4" class="page">
+        <div class="absolute top-4 left-4 text-pink-400 font-semibold text-xs">Page 4<br><span class="text-gray-300">Reasons I Love You</span>[span_11](start_span)[span_11](end_span)</div>
+        <div class="max-w-lg w-full shinchan-card">
+            <h2 class="text-xl font-bold mb-4 text-pink-300">Reasons I Love You[span_12](start_span)[span_12](end_span)</h2>
+            <div class="grid grid-cols-2 gap-3 text-black text-left text-xs font-semibold">
+                <div class="bg-yellow-200 p-3 rounded-lg shadow">✨ You are so sweet[span_13](start_span)[span_13](end_span)</div>
+                <div class="bg-pink-200 p-3 rounded-lg shadow">🌸 Your calm nature is special[span_14](start_span)[span_14](end_span)</div>
+                <div class="bg-blue-200 p-3 rounded-lg shadow">☀️ Your smile makes my day[span_15](start_span)[span_15](end_span)</div>
+                <div class="bg-green-200 p-3 rounded-lg shadow">💬 You always think about others[span_16](start_span)[span_16](end_span)</div>
+                <div class="bg-purple-200 p-3 rounded-lg shadow">💖 I love your little talks & cute arguments[span_17](start_span)[span_17](end_span)</div>
+                <div class="bg-orange-200 p-3 rounded-lg shadow">🌟 You are simply YOU... And that's perfect[span_18](start_span)[span_18](end_span)!</div>
+            </div>
+            <button onclick="nextPage()" class="mt-5 bg-pink-500 text-white font-bold py-2 px-6 rounded-full">Continue ✨</button>
+        </div>
+    </div>
 
-<div id="noPage" class="page">
-  <h1>Oyyyy, cutie! 🥺</h1>
-  <div class="character">
-    <div class="head"><div class="hair"></div><div class="eye one"></div><div class="eye two"></div><div class="cheek one"></div><div class="cheek two"></div><div class="mouth"></div></div>
-    <div class="body"></div><div class="shorts"></div><div class="leg one"></div><div class="leg two"></div>
-  </div>
-  <div class="card">
-    <h2>🥹 Please, main chhota sa nanha sa masoom sa Shinchan hoon na, please!</h2>
-    <p>Hehe, just kidding! 😂💗 Tumhara answer jo bhi ho, tumhari feelings matter karti hain.</p>
-    <button class="primary" onclick="showPage('proposal')">Go back 💕</button>
-  </div>
-</div>
+    <!-- Page 5: A Little Love Letter -->
+    <div id="page-5" class="page">
+        <div class="absolute top-4 left-4 text-pink-400 font-semibold text-xs">Page 5<br><span class="text-gray-300">A Little Love Letter</span>[span_19](start_span)[span_19](end_span)</div>
+        <div class="max-w-md w-full shinchan-card bg-amber-100 text-black cursor-pointer" onclick="nextPage()">
+            <div class="text-5xl mb-3">💌</div>
+            <h2 class="text-xl font-bold text-red-600 mb-2">Tap to read my heart...[span_20](start_span)[span_20](end_span)</h2>
+            <p class="text-xs text-gray-600">(Click anywhere to open the letter)</p>
+        </div>
+    </div>
 
-<div id="finalPage" class="page">
-  <div style="font-size:75px">💖</div>
-  <h1 class="glow">Forever, one day at a time.</h1>
-  <div class="card">
-    <p>Meri cutie pie, thank you for being part of my story.</p>
-    <p>I hope we keep choosing kindness, understanding, laughter and beautiful memories together. ❤️</p>
-    <p>Forever tumhara second favourite, after Shinchan, obviously. 😂💗</p>
-    <button class="primary" onclick="showPage('lock')">Relive our little story ↺</button>
-  </div>
-  <footer>Made with love, just for you 💌</footer>
-</div>
+    <!-- Page 6: Our Little Story -->
+    <div id="page-6" class="page">
+        <div class="absolute top-4 left-4 text-pink-400 font-semibold text-xs">Page 6<br><span class="text-gray-300">Our Little Story</span>[span_21](start_span)[span_21](end_span)</div>
+        <div class="max-w-md w-full shinchan-card">
+            <h2 class="text-lg font-bold mb-3 text-pink-300">January se shuru hui hamari love story... 💖[span_22](start_span)[span_22](end_span)</h2>
+            <div class="grid grid-cols-2 gap-2 text-xs text-black">
+                <div class="bg-white p-2 rounded shadow">📸 First time we talked[span_23](start_span)[span_23](end_span)</div>
+                <div class="bg-white p-2 rounded shadow">📸 Our sweet moments[span_24](start_span)[span_24](end_span)</div>
+                <div class="bg-white p-2 rounded shadow">📸 Our silly fights[span_25](start_span)[span_25](end_span)</div>
+                <div class="bg-white p-2 rounded shadow">📸 And then... we became closer[span_26](start_span)[span_26](end_span)</div>
+            </div>
+            <button onclick="nextPage()" class="mt-4 bg-pink-500 text-white font-bold py-2 px-6 rounded-full">Next 💕</button>
+        </div>
+    </div>
 
-<script>
-const pages = document.querySelectorAll('.page');
+    <!-- Page 7: The Glowing Heart -->
+    <div id="page-7" class="page">
+        <div class="absolute top-4 left-4 text-pink-400 font-semibold text-xs">Page 7<br><span class="text-gray-300">The Glowing Heart</span>[span_27](start_span)[span_27](end_span)</div>
+        <div class="max-w-md w-full shinchan-card">
+            <div class="text-6xl glow-heart mb-4">💖</div>
+            <h1 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400 mb-6">YOU ARE MY WORLD[span_28](start_span)[span_28](end_span)</h1>
+            <button onclick="nextPage()" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-full">Forever Yours ✨</button>
+        </div>
+    </div>
 
-function showPage(id){
-  pages.forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-  if(id==='yesPage') startParticles();
-}
-function unlock(){
-  const value=document.getElementById('password').value;
-  if(value==='1432'){
-    document.getElementById('error').textContent='';
-    showPage('boards');
-  }else{
-    document.getElementById('error').textContent='Oops! Try again, cutie 💗';
-  }
-}
-document.getElementById('password').addEventListener('keydown',e=>{
-  if(e.key==='Enter')unlock();
-});
+    <!-- Page 8: One Last Question -->
+    <div id="page-8" class="page">
+        <div class="absolute top-4 left-4 text-pink-400 font-semibold text-xs">Page 8<br><span class="text-gray-300">One Last Question</span>[span_29](start_span)[span_29](end_span)</div>
+        <div class="max-w-md w-full shinchan-card">
+            <div class="bg-white text-black p-4 rounded-xl mb-4 text-left text-sm shadow">
+                <p class="font-bold text-pink-600 mb-1">Gussa thoda kam hua, cutie? 🥺[span_30](start_span)[span_30](end_span)</p>
+                <p>Kya tum mere saath hamesha rehna chahogi? Ek partner ke roop mein... Sirf girlfriend nahi, balki meri life partner? Will you be my forever? ❤️[span_31](start_span)[span_31](end_span)</p>
+            </div>
+            <div class="flex gap-3 justify-center">
+                <button onclick="nextPage()" class="bg-pink-500 text-white font-bold py-2 px-5 rounded-full text-sm">Come, let's smile together 🥰[span_32](start_span)[span_32](end_span)</button>
+                <button onclick="alert('Take your time, I am always waiting for you! 💫')" class="bg-gray-700 text-gray-300 font-bold py-2 px-5 rounded-full text-sm">I need more time 🥺[span_33](start_span)[span_33](end_span)</button>
+            </div>
+        </div>
+    </div>
 
-const reasons=[
-  "I never ever seen a girl like you. You are so sweet, humble and calm. 💗",
-  "Your smile can make an ordinary day feel special. 😊",
-  "I love how kind and thoughtful you are. 🌷",
-  "You have a beautiful heart, and that's so precious. 💖",
-  "Your cute little ways make me smile without even trying. 🥹",
-  "I love the memories we've made since January. 💌",
-  "There are so many reasons I love you, and I'm still discovering more. ❤️"
-];
-let reasonIndex=0;
-function renderBoard(){
-  document.getElementById('boardText').textContent=reasons[reasonIndex];
-  document.getElementById('boardCount').textContent=`Reason ${reasonIndex+1} of ${reasons.length}`;
-  document.getElementById('nextBoard').textContent=reasonIndex===reasons.length-1?'Open my letter 💌 →':'Next reason 💖 →';
-}
-function nextBoard(){
-  if(reasonIndex<reasons.length-1){reasonIndex++;renderBoard();}
-  else showPage('letterPage');
-}
-function previousBoard(){
-  if(reasonIndex>0){reasonIndex--;renderBoard();}
-}
-renderBoard();
+    <!-- Page 9: Special Page -->
+    <div id="page-9" class="page">
+        <div class="absolute top-4 left-4 text-pink-400 font-semibold text-xs">Page 9<br><span class="text-gray-300">Special Page</span>[span_34](start_span)[span_34](end_span)</div>
+        <div class="max-w-md w-full shinchan-card">
+            <div class="text-4xl mb-3">🌙✨🐕</div>
+            <p class="text-sm italic mb-6 text-pink-200">"No matter how many people come and go... You will always be my favorite person...[span_35](start_span)"[span_35](end_span)</p>
+            <button onclick="nextPage()" class="bg-pink-500 text-white font-bold py-2 px-6 rounded-full">Next 💖</button>
+        </div>
+    </div>
 
-const loveLetter = `Heyyy meri cutie pie,
+    <!-- Page 10: Memories -->
+    <div id="page-10" class="page">
+        <div class="absolute top-4 left-4 text-pink-400 font-semibold text-xs">Page 10<br><span class="text-gray-300">Memories</span>[span_36](start_span)[span_36](end_span)</div>
+        <div class="max-w-md w-full shinchan-card">
+            <h2 class="text-lg font-bold mb-3 text-pink-300">Memories with Shiro & You[span_37](start_span)[span_37](end_span)</h2>
+            <div class="grid grid-cols-2 gap-2 text-xs text-black">
+                <div class="bg-yellow-100 p-2 rounded shadow">🍲 Good Food = Happy Shinchan[span_38](start_span)[span_38](end_span)</div>
+                <div class="bg-blue-100 p-2 rounded shadow">🐶 My best friend Shiro[span_39](start_span)[span_39](end_span)</div>
+                <div class="bg-pink-100 p-2 rounded shadow">✨ My cute expressions[span_40](start_span)[span_40](end_span)</div>
+                <div class="bg-purple-100 p-2 rounded shadow">☔ Even in rain... I think about you[span_41](start_span)[span_41](end_span)</div>
+            </div>
+            <button onclick="nextPage()" class="mt-4 bg-pink-500 text-white font-bold py-2 px-6 rounded-full">Almost There 🌸</button>
+        </div>
+    </div>
 
-Pata hai, kabhi-kabhi main sochta hoon ki hamari story kitni pyari hai. January se shuru hui ye chhoti si love story aur tab se lekar ab tak humne kitne saare moments banaye hain. Kitni saari baatein, kitna hansi-mazaak, kitni cute memories, kitni baar ek-dusre ko manana aur kitni baar chhoti-chhoti baaton par ladkar phir sab theek kar lena. Humne saath mein sirf happy moments hi nahi dekhe, balki aise moments bhi dekhe hain jahan humein ek-dusre ko samajhna pada, ek-dusre ki baat sunni padi, aur apni misunderstandings door karni padi. Par mere liye hamari story ki khoobsurti sirf un happy moments mein nahi hai, balki is baat mein bhi hai ki humne kitni saari cheezein saath mein face ki hain. Aur aaj bhi jab main hamare un purane moments ke baare mein sochta hoon, toh mere face par apne aap smile aa jaati hai. Wo sab mere liye sirf memories nahi hain, wo meri life ka ek bahut hi special part hain. Aur main chahta hoon ki hum aage bhi aise hi bahut saari beautiful memories banayein.
+    <!-- Page 11: Final Message -->
+    <div id="page-11" class="page">
+        <div class="absolute top-4 left-4 text-pink-400 font-semibold text-xs">Page 11<br><span class="text-gray-300">Final Message</span>[span_42](start_span)[span_42](end_span)</div>
+        <div class="max-w-md w-full shinchan-card bg-amber-50 text-black">
+            <h3 class="text-lg font-bold text-red-600 mb-2">Final Message 💌[span_43](start_span)[span_43](end_span)</h3>
+            <p class="text-sm text-gray-800 leading-relaxed mb-4">
+                I know I'm not perfect...[span_44](start_span)[span_44](end_span)<br>
+                But I'm trying to be better...[span_45](start_span)[span_45](end_span)<br>
+                For you... for us...[span_46](start_span)[span_46](end_span)<br><br>
+                I love you... Always & Forever... ❤️[span_47](start_span)[span_47](end_span)
+            </p>
+            <button onclick="nextPage()" class="bg-pink-500 text-white font-bold py-2 px-6 rounded-full">The End 💖</button>
+        </div>
+    </div>
 
-Par meri ek baat hai jo main dil se kehna chahta hoon. Kabhi-kabhi main sochta hoon ki hamare saath bitaye hue purane moments kitne yaad aate hain, wo pehle jaisi lambi-lambi conversations, bina kisi reason ke hansi-mazaak, ek-dusre ko apni har chhoti-badi baat batana aur bas ek-dusre ke saath time spend karke khush ho jaana. Pata nahi kyun, par wo moments mere liye bahut precious hain. Main ye nahi keh raha ki har din pehle jaisa hi hona chahiye, ya har waqt humein baat karni hi ho, main tumhari feelings aur space ki respect karta hoon, meri cutie. Bas kabhi-kabhi dil karta hai ki hum phir se thoda aur time saath mein spend karein, apni silly si baatein share karein aur ek-dusre ke saath wo comfort feel karein jahan bina kuch soche hum dil ki har baat keh sakein. Kyunki honestly, tumhare saath bitaya hua time mere liye bahut special hai.
+    <!-- Page 12: The End -->
+    <div id="page-12" class="page">
+        <div class="absolute top-4 left-4 text-pink-400 font-semibold text-xs">Page 12<br><span class="text-gray-300">The End</span>[span_48](start_span)[span_48](end_span)</div>
+        <div class="max-w-md w-full shinchan-card">
+            <div class="text-5xl mb-3">🌙✨💖</div>
+            <h2 class="text-xl font-bold text-pink-300 mb-2">Thank you for being a part of my little world...[span_49](start_span)[span_49](end_span)</h2>
+            <h1 class="text-2xl font-extrabold text-red-400 mb-4">I Love You[span_50](start_span)[span_50](end_span)</h1>
+            <p class="text-xs text-gray-400 italic">Forever... - Shinchan[span_51](start_span)[span_51](end_span)</p>
+            <button onclick="resetStory()" class="mt-6 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full text-xs">Start Again 🔄</button>
+        </div>
+    </div>
 
-Aur agar kabhi tumhare mind mein kuch chal raha ho, ya koi baat tumhe pareshan kar rahi ho, toh main chahta hoon ki tum mere saath share kar sako. Main hamesha perfect nahi ho sakta, mujhse bhi galtiyan hoti hongi, lekin main sach mein tumhe behtar samajhna chahta hoon, tumhari feelings ko samajhna chahta hoon, aur tumhare liye ek aisa insaan banna chahta hoon jiske saath tum comfortable aur happy feel karo.
+    <script>
+        let currentPage = 1;
+        const totalPages = 12;
 
-Aur haan, meri Shinchan lover, mujhe pata hai ki tumhara first love Shinchan hai, aur main tumhara second love hoon. Theek hai, main second position se bhi khush hoon, bas tumhari favourite list mein apni jagah banaye rakhna chahta hoon. Tumhari smile mere liye bahut precious hai. Tum khush ho toh mujhe sach mein achha lagta hai. Aur main chahta hoon ki hamari life mein aise aur moments aayein jahan hum dono bina kisi tension ke saath mein hansein, ek-dusre ko tease karein aur apni cute si duniya mein khush rahein.
+        function showPage(pageNo) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(`page-${pageNo}`).classList.add('active');
+        }
 
-Shukriya meri zindagi mein aane ke liye, shukriya January se lekar aaj tak meri kahani ka itna sundar hissa banne ke liye. Mujhe nahi pata ki future mein hamari story mein kitne naye chapters aayenge, lekin jo memories hum ab tak bana chuke hain, wo mere liye hamesha special rahengi. Aur main chahta hoon ki hum aage bhi apni story mein bahut saari happiness, understanding, love aur beautiful moments add karein.
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            } else {
+                alert("You've reached the end of my heart! ❤️");
+            }
+        }
 
-Agar kabhi main tumhe ye batana bhool jaaun ki tum mere liye kitni special ho, toh is letter ko yaad kar lena. Tum mere liye aaj bhi utni hi special ho jitni hamari story ke pehle din thi. Aur mera pyaar tumhare liye aaj bhi utna hi hai.
+        function resetStory() {
+            currentPage = 1;
+            showPage(1);
+        }
 
-Apna khayal rakhna us cute se chhote dil ka, aur apni smile kabhi mat khona. I love you, so, so, so much, meri cutie.
-
-Forever tumhara second favourite, after Shinchan, obviously.`;
-
-let letterOpened=false;
-function openLetter(){
-  const wrap=document.getElementById('letterWrap');
-  wrap.style.display='block';
-  if(letterOpened)return;
-  letterOpened=true;
-  const target=document.getElementById('letter');
-  target.textContent=loveLetter;
-  target.scrollTop=0;
-  let scrolling=false;
-  target.addEventListener('click',()=>scrolling=!scrolling);
-  const autoScroll=()=>{
-    if(!target.isConnected)return;
-    if(scrolling && target.scrollTop+target.clientHeight<target.scrollHeight){
-      target.scrollTop+=0.5;
-    }
-    requestAnimationFrame(autoScroll);
-  };
-  requestAnimationFrame(autoScroll);
-  setTimeout(()=>{scrolling=true},1500);
-}
-
-function sayYes(){
-  showPage('yesPage');
-}
-function sayNo(){
-  showPage('noPage');
-}
-
-/* Floating hearts */
-for(let i=0;i<20;i++){
-  const heart=document.createElement('div');
-  heart.className='float';
-  heart.textContent=['♡','♥','💗','✦'][i%4];
-  heart.style.left=Math.random()*100+'%';
-  heart.style.animationDelay=(-Math.random()*10)+'s';
-  heart.style.animationDuration=(7+Math.random()*8)+'s';
-  heart.style.fontSize=(15+Math.random()*23)+'px';
-  document.body.appendChild(heart);
-}
-
-/* Original particle art: two romantic silhouettes, made of glowing dots */
-let animationStarted=false;
-function startParticles(){
-  if(animationStarted)return;
-  animationStarted=true;
-  const canvas=document.getElementById('particleCanvas');
-  const ctx=canvas.getContext('2d');
-  let w,h,dots=[],frame=0;
-  function resize(){
-    const rect=canvas.getBoundingClientRect();
-    w=canvas.width=rect.width*devicePixelRatio;
-    h=canvas.height=rect.height*devicePixelRatio;
-    ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
-    w=rect.width;h=rect.height;
-    dots=[];
-    const scale=Math.min(w/390,h/650);
-    const cx=w/2,cy=h*.53;
-    function addEllipse(x,y,rx,ry,count){
-      for(let i=0;i<count;i++){
-        const a=Math.random()*Math.PI*2;
-        const r=Math.sqrt(Math.random());
-        dots.push({x:cx+(x+Math.cos(a)*rx*r)*scale,
-                   y:cy+(y+Math.sin(a)*ry*r)*scale,
-                   phase:Math.random()*6.28,
-                   size:.5+Math.random()*1.8});
-      }
-    }
-    /* Left and right heads */
-    addEllipse(-36,-78,22,26,250);
-    addEllipse(28,-80,22,26,250);
-    /* Hair */
-    addEllipse(-36,-101,23,9,100);
-    addEllipse(28,-103,23,9,100);
-    /* Shoulders and bodies */
-    addEllipse(-33,-27,30,42,250);
-    addEllipse(29,-28,30,42,250);
-    /* Arms reaching toward each other */
-    for(let i=0;i<160;i++){
-      const t=Math.random();
-      const x=-8+16*t;
-      const y=-52+14*t;
-      dots.push({x:cx+x*scale,y:cy+y*scale,phase:Math.random()*6.28,size:1+Math.random()*1.5});
-    }
-    /* A heart above the couple */
-    for(let i=0;i<180;i++){
-      const t=Math.random()*Math.PI*2;
-      const x=16*Math.pow(Math.sin(t),3);
-      const y=-(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t));
-      dots.push({x:cx+x*scale,y:cy-143*scale+y*scale,phase:Math.random()*6.28,size:.7+Math.random()*1.5});
-    }
-  }
-  resize();
-  window.addEventListener('resize',resize);
-  function draw(){
-    if(!document.getElementById('yesPage').classList.contains('active')){
-      requestAnimationFrame(draw);return;
-    }
-    ctx.clearRect(0,0,w,h);
-    frame+=.018;
-    for(const d of dots){
-      const pulse=.55+.45*Math.sin(frame+d.phase);
-      ctx.beginPath();
-      ctx.arc(d.x+Math.sin(frame+d.phase)*1.2,d.y+Math.cos(frame+d.phase)*1.2,d.size*pulse,0,Math.PI*2);
-      ctx.fillStyle=`rgba(${255},${125+Math.floor(pulse*100)},${195+Math.floor(pulse*60)},${.25+pulse*.7})`;
-      ctx.shadowBlur=6;
-      ctx.shadowColor='#ff72cf';
-      ctx.fill();
-    }
-    ctx.shadowBlur=0;
-    requestAnimationFrame(draw);
-  }
-  draw();
-}
-</script>
+        function moveNoButton(btn) {
+            const x = Math.random() * 150 - 75;
+            const y = Math.random() * 100 - 50;
+            btn.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    </script>
 </body>
 </html>
